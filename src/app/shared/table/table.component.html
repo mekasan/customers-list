@@ -13,7 +13,7 @@
       Total sum:
     </div>
     <div class="column">
-      <input type="text" aria-label="any number" [(ngModel)]="search" placeholder="only numbers">
+      <input type="text" [(ngModel)]="search" appRestrictNumber placeholder="only numbers">
     </div>
     <div class="column">
       <button (click)="onFilter()" type="button">Filter</button>

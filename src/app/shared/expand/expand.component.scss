@@ -1,0 +1,37 @@
+.mat-row {
+  min-height: 96px;
+  display: flex;
+  border-left: 1px solid #DFDFDF;
+  border-bottom: 1px solid #DFDFDF;
+  background-color: #E5FFF9;
+  border-right: 1px solid #DFDFDF;
+}
+.mat-cell {
+  text-align: center;
+  overflow: hidden;
+  word-wrap: break-word;
+  height: 96px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  .title {
+    border-right: 1px solid #DFDFDF;
+  }
+  .expand {
+    min-height: 48px;
+  }
+}
+.mat-cell.title {
+  border-right: 1px solid #DFDFDF;
+}
+.expand {
+  display: inline-block;
+  line-height: 48px;
+  &-cells {
+    display: flex;
+    border-bottom: 1px solid #DFDFDF;
+    .expand {
+      margin-left: 15px;
+    }
+  }
+}

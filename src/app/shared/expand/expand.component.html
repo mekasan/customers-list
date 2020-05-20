@@ -1,0 +1,15 @@
+<div  class="mat-row">
+  <div class="mat-cell title" [ngStyle]="{'width': '15%'}">{{params.expand.title}}</div>
+  <div class="mat-cell expand" [ngStyle]="{'width': '85%'}">
+    <div class="expand-cells" *ngFor="let item of items">
+      <div class="expand" *ngFor="let name of params.expand.expProp">
+        <div *ngIf="name.fieldName === 'date' else regular">
+          <div class="expand">{{name.name}}: {{item[name.fieldName] | date:'dd.MM.yyyy'}}</div>
+        </div>
+        <ng-template #regular>
+                  <div class="expand">{{name.name}}:{{item[name.fieldName]}}</div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

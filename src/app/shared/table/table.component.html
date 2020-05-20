@@ -1,0 +1,65 @@
+<!--TABLE TOOLBAR BEGIN -->
+<div class="container">
+  <div class="row">
+    <div class="logo"></div>
+  </div>
+  <div class="row">
+    <div class="title">
+      Customers list
+    </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      Total sum:
+    </div>
+    <div class="column">
+      <input type="text" aria-label="any number" [(ngModel)]="search" placeholder="only numbers">
+    </div>
+    <div class="column">
+      <button (click)="onFilter()" type="button">Filter</button>
+    </div>
+  </div>
+</div>
+<!--TABLE TOOLBAR END -->
+<!--TABLE BEGIN-->
+<div class="table">
+  <div class="header-row">
+      <div class="header-cell cell"
+           *ngFor="let item of cells; index as i"
+           (click)="sort(item.fieldName); toggleSort(i)"
+           [ngStyle]="{'width':item.width}">
+        {{item.name}}
+        <span class="arrow" [ngClass]="{active: activeSort === i}" >
+      </span>
+    </div>
+  </div>
+
+  <div class="wrapper">
+    <div class="table-wrapper"
+         (click)="toggleExpand(i)"
+         *ngFor="let row of filtered; index as i">
+      <div  class="row">
+        <div class="cell"
+             *ngFor="let name of cells"
+             [ngStyle]="{'width': name.width}"
+             [ngClass]="{id: name.fieldName === 'id'}" >
+          <div *ngIf="name.fieldName === 'id'">
+          <span
+            class="chevron"
+            [ngClass]="{active: activeExpand === i}">
+          </span>
+          </div>
+          <div>{{row[name.fieldName]}}</div>
+        </div>
+      </div>
+      <!--  EXPAND BEGIN-->
+      <app-expand class="expand"
+                  *ngIf="params.expand.on && activeExpand === i"
+                  [items]="row[params.expand.prop]"
+                  [params]="params">
+      </app-expand>
+      <!--  EXPAND BEGIN-->
+    </div>
+  </div>
+</div>
+<!--TABLE BEGIN-->

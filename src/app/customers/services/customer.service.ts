@@ -27,9 +27,11 @@ export class CustomerService {
    */
   getCustomers(): Customer[] {
     return [
-      {id: 1, name: 'Ada Clarke', status: 'gold', sum: 12457, orders: [
+      {id: 1, name: 'Ada Clarke', status: 'gold', sum: 24914, orders: [
           {id: 12, date: new Date( '2020-01-18'), sum: 1967},
           {id: 25, date: new Date('2020-04-23'), sum: 10490},
+          {id: 26, date: new Date( '2020-01-18'), sum: 1967},
+          {id: 27, date: new Date('2020-04-23'), sum: 10490},
         ]},
       {id: 2, name: 'Grace Hooper', status: 'regular', sum: 47899, orders: [
           {id: 55, date: new Date( '2020-03-15'), sum: 22455},

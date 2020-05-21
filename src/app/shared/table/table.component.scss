@@ -39,6 +39,7 @@
 }
 .wrapper {
   overflow: scroll;
+  height:calc(100vh - 56px);
 }
 .row,
 .header-row {
